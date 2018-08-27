@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, re_path
 from .views import ProductPriceView
 
 urlpatterns = [
-    path(r'^$', ProductPriceView.as_view(), name="product-price" ),
+    path(r'get-price/<productCode>/<date>', ProductPriceView.as_view(), name="product-price" ),
+    path(r'get-price/<productCode>/<date>/<giftCardCode>', ProductPriceView.as_view(), name="product-price" ),
 ]

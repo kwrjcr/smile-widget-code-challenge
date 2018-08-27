@@ -18,7 +18,7 @@ class GiftCard(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.code, self.formatted_amount)
-    
+
     @property
     def formatted_amount(self):
         return '${0:.2f}'.format(self.amount / 100)
